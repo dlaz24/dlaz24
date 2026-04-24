@@ -1,19 +1,6 @@
-import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 
 export default function CalendlyEmbed() {
-  const containerRef = useRef(null)
-
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://assets.calendly.com/assets/external/widget.js'
-    script.async = true
-    document.body.appendChild(script)
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
@@ -28,12 +15,15 @@ export default function CalendlyEmbed() {
         </p>
       </div>
 
-      <div
-        ref={containerRef}
-        className="calendly-inline-widget rounded-2xl overflow-hidden border border-white/10"
-        data-url="https://calendly.com/ai_consult/30min"
-        style={{ minWidth: '280px', height: '660px' }}
-      />
+      <div className="rounded-2xl overflow-hidden border border-white/10">
+        <iframe
+          src="https://calendly.com/ai_consult/30min?embed_type=Inline&hide_event_type_details=0&hide_gdpr_banner=1"
+          width="100%"
+          height="660"
+          frameBorder="0"
+          title="Book a discovery call"
+        />
+      </div>
     </motion.div>
   )
 }
