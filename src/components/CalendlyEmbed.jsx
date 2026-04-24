@@ -31,7 +31,7 @@ export default function CalendlyEmbed() {
       <div
         ref={containerRef}
         className="calendly-inline-widget rounded-2xl overflow-hidden border border-white/10"
-        data-url="https://calendly.com/YOUR_LINK"
+        data-url="https://calendly.com/ai_consult/30min"
         style={{ minWidth: '280px', height: '660px' }}
       />
     </motion.div>
